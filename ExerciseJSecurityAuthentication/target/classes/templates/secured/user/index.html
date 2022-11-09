@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" xmlns:sec = "https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<meta charset="ISO-8859-1">
+	<title> User Area </title>
+</head>
+<body>
+	<h1> Welcome to the User's Secured Area! </h1>
+	
+	<p> User Name: <span sec:authentication = "name"></span></p>
+	<p> Roles: <span sec:authentication = "principal.authorities"></span></p>
+	
+	<form action = # th:action = "@{/logout}" method = post> 
+		<input type = submit value = "Logout">
+	</form>
+</body>
+</html>
