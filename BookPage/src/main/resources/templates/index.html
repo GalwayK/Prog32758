@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+	<form action = "/formSubmit" method = "GET"> 
+		<label for = "isbn"><p> Please enter ISBN: <input type = text name = inputISBN required maxLength = 13 min = 1> </p></label>
+		<label for = "title"><p> Please enter title: <input type = text name = inputTitle required > </p></label>
+		<label for =  "author"><p> Please enter author: <input type = text name = inputAuthor required> </p></label>
+		<label for = "price"><p> Please enter price: <input type = text name = inputPrice required pattern = "(\d*?\.)\d+"> </p> </label>
+		<label for = "copies"><p> Please enter copies: <input type = text name = inputCopies required pattern = "\d+"> </p></label>
+		<label for = "genre"><p> Please select genre: 
+		<select name = inputGenre id = inputGenre>
+			<option value = 1> Horror </option>
+			<option value = 2> Romance </option>
+			<option value = 3> Fantasy </option>
+			<option value = 4> Science-Fiction </option> 
+		 </select>
+		</p></label>
+	
+		<label for = "submit"><input type = submit></label>
+	</form>
+
+</body>
+</html>

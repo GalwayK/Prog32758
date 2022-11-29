@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Spring Security Index</title>
+</head>
+<body>
+	<header>
+		<h1> Welcome to Spring Security [[${userName}]]</h1>
+	</header>
+	
+	<main>
+		<div th:if = "${roles}">
+			<ul> 
+				<li th:each = "role : ${roles}" th:text = "${role}"> Role </li>
+			</ul>
+		</div>
+	
+		<p> 
+			This is an unsecured page. You will be able to access the secured 
+			pages after you are authenticated. 
+		</p>
+		<a href = # th:href = "@{/secured}"><input type = button value = "Log In"></a>
+	</main>
+	
+	<footer> 
+		<p> By Kyle Galway </p>
+	</footer>
+</body>
+</html>

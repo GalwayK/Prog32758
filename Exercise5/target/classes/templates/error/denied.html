@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+<body>
+	<header> 
+		<h1> Permission Denied </h1>
+	</header>
+	
+	<main> 
+		<p> You do not have permission to be in this area. </p>
+		<a href = # th:href = @{/secured}><input type = button value = Login></a>
+	</main>
+	
+	<footer> 
+		<p> By Kyle Galway </p>
+	</footer>
+</body>
+</html>

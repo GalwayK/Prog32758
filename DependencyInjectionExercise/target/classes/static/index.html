@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="get" action="/adopt">
+		<p><label for="adopterName">Adopter Name:
+			<input type="text" id="adopterName" name="adopterName"
+			required>
+		</label><br>
+		<label for="petName">Pet Name:
+			<input type="text" id="petName" name="petName">
+		</label><br>
+		<label for="type">Pet Type:
+			<select id="type" name="type">
+				<option value="Cat" selected>Cat</option>
+				<option value="Dog">Dog</option>
+				<option value="Rodent">Rodent</option>
+				<option value="Other">Other</option>
+			</select>
+		</label><br>
+		<label for="breed">Pet Breed:
+			<input type="text" id="breed" name="breed">
+		</label></p>
+		<p><input type="submit"></p>
+	</form>
+</body>
+</html>

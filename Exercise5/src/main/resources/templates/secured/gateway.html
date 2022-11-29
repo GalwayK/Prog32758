@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" xmlns:sec = "https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<meta charset="ISO-8859-1">
+	<title> Secured Section </title>
+</head>
+<body>
+	<header> 
+		<h1> Welcome to the Secure Area </h1>
+		<div th:if = "${message}" class = "error">
+			<p th:text = ${message}> Error Message </p> 
+		</div>
+	</header>
+	
+	<main> 
+		<p> User Name: <span sec:authentication = "name"></span></p>
+		<p> User Role: <span sec:authentication = "principal.authorities"></span></p>
+		
+		<div sec:authorize = "hasRole('ROLE_USER')">
+			<a href = # th:href = "@{/user}"><input type = button value = "User Pages"></a>
+		</div>
+		
+		<div sec:authorize = "hasRole('ROLE_MANAGER')">
+			<a href = # th:href = "@{/manager}"><input type = button value = "Manager Pages"></a>
+		</div>
+		
+		<form action = # th:action = "@{/logout}" method = post>
+			<input type = submit value = "Log Out">
+		</form>
+	</main>
+	
+	<footer> 
+		<p> By Kyle Galway </p>
+	</footer>
+</body>
+</html>

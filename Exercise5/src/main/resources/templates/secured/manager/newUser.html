@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" xmlns:sec = "https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<meta charset="ISO-8859-1">
+	<title> Add a User </title>
+	<script src = "../../static/javascript/script.js" th:src = "@{/javascript/script.js}"></script>
+</head>
+<body>
+	<header> 
+		<h1> Add a User </h1>
+	</header>
+	
+	<main> 
+		<div id = error class = error></div>
+		<form action = # th:action = "@{/manager/newUser}" method = post obsubmit = "return verify()"> 
+			<p> Username: <input type = text name = userName></p>
+			<p> Password: <input type = text name = password></p>
+			<input type = checkbox name = authorities th:each = "authority : ${authorities}" th:text = "${authority}" th:value = "${authority}">
+			<input type = submit value = "Add User">
+		</form>
+	</main>
+	
+	<footer> 
+		<p> By Kyle Galway </p>
+	</footer>
+</body>
+</html>
