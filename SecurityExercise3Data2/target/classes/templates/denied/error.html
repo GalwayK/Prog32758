@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" xmlns:sec = "https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<link rel = stylesheet type = text/css href = "../static/css/styles.css" th:href = "@{css/styles.css}">
+<meta charset="ISO-8859-1">
+<title> Access Denied </title>
+</head>
+<body>
+	<header><h1> Access Denied </h1></header>
+	
+	<main> 
+		<p> You do not have access to this page. </p>
+		<p><a href = "/" th:href = "@{/}"><input type = button value = Return></a>
+		<p><a href = "/logout" th:href = "@{/logout}"><input type = button value = Logout></a>
+	</main>
+
+	<footer><h2> By Kyle Galway </h2></footer>
+</body>
+</html>

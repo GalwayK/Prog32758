@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" xmlns:sec = "https:/www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<link type = text/css rel = stylesheet th:href = @{css/styles.css} href = "../static/css/styles.css">
+<title> Form Index Page </title>
+</head>
+<body>
+
+<header><h1> Unsecured Page </h1></header>
+
+<main> 
+	<a href = "/exercise"><img src = "../static/images/godOfWar.png" th:src = "@{/images/godOfWar.png}"></a>
+
+	<a href = "/secure"><input type = button value = "Login"></a>
+</main>
+
+<footer><h2> By Kyle Galway </h2></footer>
+</body>
+</html>
