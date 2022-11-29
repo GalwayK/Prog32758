@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link type = text/css rel = stylesheet th:href = @{css/data.css}>
+<title> Add Student Page </title>
+</head>
+<body>
+<header> 
+	<h1> Add a Student </h1>
+</header>
+
+<main> 
+	<form method = post action = "/updateStudent" th:object = "${student}"> 
+	<input type = hidden th:field = *{id}>
+	<p class = inputOptions> Student Name </p>
+	<p><span> First Name: </span><input type = text name = firstName id = lastName th:field = *{firstName} required></p>
+	<p><span> First Name: </span><input type = text name = lastName id = lastName th:field = *{lastName} required></p>
+	<p class = inputOptions> Student Info </p>
+	<p> Course Name: 
+		<select name = program id = program th:field = *{program}>
+			<option th:each = "program : ${programList}" th:text = "${program.courseName}" th:value = "${program.courseName}">
+		</select>
+	</p>
+	<span class = yearSelect>
+		<p> Year </p>
+			<span class = check>
+				<p> One <input type = radio name = schoolYear id = schoolYear th:field = *{schoolYear} value = 1> </p>
+				<p> Two <input type = radio name = schoolYear id = schoolYear th:field = *{schoolYear} value = 2> </p>
+				<p> Three <input type = radio name = schoolYear id = schoolYear th:field = *{schoolYear} value = 3> </p>
+			</span>
+	</span>
+	<p class = inputOptions> Options </p>
+	<p> Co-op: <input type = checkbox name = coop id = coop th:field = *{coop}> </p>
+	<p> Internship: <input type = checkbox name = intership id = internship th:field = *{internship}> </p>
+	<input th:if = "*{id == 0}" type = submit value = "Add Student">
+	<input th:if = "*{id > 0}" type = submit value = "Update Student">
+	</form>
+	<a href = "/"><input type = button value = "Index"></a>
+</main>
+
+<footer> 
+	<p> By Kyle Galway </p>
+</footer>
+</body>
+</html>

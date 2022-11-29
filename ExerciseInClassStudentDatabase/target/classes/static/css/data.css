@@ -1,0 +1,141 @@
+* 
+{
+	font-family: verdana;
+}
+
+body 
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: space-evenly;
+	margin: 0px;
+	text-align: center;
+}
+
+header 
+{
+	height: 10vh;
+	color: white; 
+	background-color: #0B335D;
+}
+
+.check 
+{
+	display: inline-flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: start;
+	gap: 2vh;
+}
+
+.inputOptions 
+{
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.yearSelect
+{
+	display: block;
+	border:  #0B335D 2px solid;
+}
+
+tr, td 
+{
+	padding: 2vh;
+	border: #0B335D 2px solid;
+}
+
+.input
+{
+	padding: 8px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 10px;
+}
+
+footer
+{
+	height: 10vh;
+}
+
+li 
+{
+	text-align: left;
+}
+
+.tableHeadings
+{
+	font-weight: bold;
+}
+
+.indexLinks
+{
+	display:flex;
+	flex-direction: column;
+	justify-content: start;
+	gap: 2vh;
+}
+
+table
+{
+	border:  #0B335D 3px solid;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+td 
+{
+	width: 20vh;
+}
+
+main
+{
+	background-image: url("../img/sheridanLogo.png");
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: 20vh;
+	height: 80vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	z-index: 7;
+}
+
+.link, .submit
+{
+	background-color: white;
+	padding: 3px;
+	border: #0B335D 3px solid;
+	text-decoration: none;
+	color: #0B335D;
+	text-align: center;
+}
+
+.link:hover, .submit:hover
+{
+	background-color: #0B335D;
+	color: white;
+}
+
+ul 
+{
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+form, ul 
+{
+	background-color: white;
+	border: #0B335D 3px solid;
+	border-radius: 10px;
+	z-index: 0;
+	padding: 20px;
+	margin: 8px;
+}

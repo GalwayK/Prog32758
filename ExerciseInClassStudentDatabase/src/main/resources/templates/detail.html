@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link type = text/css rel = stylesheet th:ref = @{css/data.css} href = ../static/css/data.css>
+<title> Student Database Details</title>
+</head>
+<body>
+<header> 
+	<h1> Student Details Page </h1>
+</header>
+
+<main> 
+	<table th:object = ${student}>
+		<tr> 
+			<td colspan = 2> Student Info </td> 
+		</tr>
+		<tr>
+			<td> Name </td>
+			<td th:text = "|*{firstName} *{lastName}|"> </td>
+		 </tr>
+		 <tr> 
+		 	<td> Program </td>
+		 	<td th:text = "|*{program} year *{schoolYear}|"> Program </td>
+		 <tr>
+		 	<td> Coop </td>
+		 	<td th:text = *{coop}> Coop </td>
+		 </tr>
+		 <tr> 
+		 	<td> Internship </td>
+		 	<td th:text = *{internship}> Internship </td>
+		 </tr>
+	</table>
+	
+	<a th:href = "|/editStudent/${student.id}|"><input type = button value = "Edit Student"></a>
+	<a th:href = "|/deleteStudent/${student.id}|"><input type = button value = "Delete Student"></a>
+	<a href = "/"><input type = button value = "Index"></a>
+</main>
+
+<footer>
+	<p> By Kyle Galway </p>
+</footer>
+
+</body>
+</html>

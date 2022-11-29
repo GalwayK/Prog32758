@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link type = text/css rel = stylesheet th:href = @{css/data.css}>
+<title> Student Database Index</title>
+</head>
+<body>
+
+<header> 
+	<h1> Student Index </h1>
+</header>
+
+<main><span class = indexLinks>
+	<p th:unless = "${message == null}"> 
+		<span th:text = "${message}"> Message </span>
+	</p>
+	<a href = "/viewStudents"> <input type = button value = "View Students"> </a>
+	<br>
+	<a href = "/addStudent"> <input type = button value = "Add Student"> </a>
+</span></main>
+
+<footer> 
+	<p> By Kyle Galway </p>
+</footer>
+
+</body>
+</html>

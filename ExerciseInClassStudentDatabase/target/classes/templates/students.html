@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Student List Page</title>
+<link type = text/css rel = stylesheet th:href = @{css/data.css}>
+</head>
+<body>
+<header> 
+	<h1 th:if = "${studentList.empty}"> Add Some Students to View</h1>
+	<h1 th:unless = "${studentList.empty}"> All Students </h1>
+</header>
+
+<main>
+	<table th:unless = ${studentList.empty}> 
+		<tr> 
+			<td> Count </td>
+			<td> First Name </td>
+			<td> Last Name </td>
+			<td> Options </td>
+		</tr>
+		<tr th:each = "student,status : ${studentList}" th:object = ${student}> 
+			<td th:text = *{id}> Count  </td>
+			<td th:text = *{firstName}> First Name </td>
+			<td th:text = *{lastName}> Last Name </td>
+			<td>
+				<a th:href = "|/details/*{id}|"><input type = button value = "Details"></a>
+				<a th:href = "|/editStudent/*{id}|"><input type = button value = "Edit"></a>
+				<a th:href = "|/deleteStudent/*{id}|"><input type = button value = "Delete"></a>
+			</td>
+		</tr>
+	</table>
+	<span class = links> 
+		<a href = "/"><input type = button value = "Index"></a>
+		<a href = "/addStudent"><input type = button value = "Add Student"></a>
+		<a href = "/deleteStudents"><input type = button value = "Delete All"></a>
+	</span>
+</main>
+
+<footer> 
+	<p> By Kyle Galway </p>
+</footer>
+
+</body>
+</html>
