@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method = post action = "/submitBook" th:object = "${bookTemplate}">
+		<p> Book Title: <input type = text name = bookTitle id = bookTitle th:field = *{title}> </p>
+		<p> Book Author: <input type = text name = bookAuthor id = bookAuthor th:field = *{author}> </p>
+		<p> Book Price: <input type = text name = bookPrice id = bookPrice th:field = *{price}> </p>
+		<p> Book ISBN: <input type = text name = bookIsbn id = bookIsbn th:field = *{isbn}> </p>
+		<select th:field = *{genre} name = bookGenre id = bookGenre>
+			<option th:each = "genre,status : ${genres}" th:text = ${genre.getGenre()} th:value = ${status.index}> Genre </option>
+		</select>
+		<input type = submit value = "Submit Book">
+		<a href = "/deleteBooks"> Delete Books </a>
+	</form>
+	<p th:unless = "${bookList.empty}"><ul> 
+		<li th:each = "book : ${bookList}" th:text = ${book}> Book </li>
+	</ul></p>
+</body>
+</html>

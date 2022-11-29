@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:object = "${playerTemplate}" action = "/submitPlayer" method = post> 
+		<p> First Name: <input type = text th:field = "*{firstName}"></input></p>
+		<p> Last Name: <input type = text th:field = "*{lastName}"></input></p>
+		<p> Team Name: <select th:field = "*{team}">
+			<option th:each = "team : ${teamList}" th:text = ${team} th:value = ${team}>
+		</select></p>
+		<p> Number: <input type = text th:field = "*{number}"></input></p>
+		<input type = submit>
+		
+		<h1 th:if = "${playerList.empty}"> Add a Player! </h1>
+		<h1 th:unless = "${playerList.empty}"> Player List </h1>
+		<ul th:unless = ${playerList.empty}>
+			<li th:each = "player : ${playerList}" th:text = ${player}> Player </li> 
+		</ul>
+	</form>
+</body>
+</html>
