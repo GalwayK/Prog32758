@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Message Post </title>
+</head>
+<body>
+<header>
+	<h1 th:if = "${message.messageId == 0}"> Post a Message </h1>
+	<h1 th:unless = "${message.messageId == 0}"> Edit a Message </h1>
+</header>
+
+<main> 
+	<form method = post action = "/submitMessage" th:object = "${message}"> 
+		<input type = hidden id = messageId th:field = "*{messageId}">
+		<input type = text name = message id = message th:field = *{message}>
+		<input type = submit>
+	</form>
+	<p><a href = "/logout"><input type = button value = "Logout"></a></p>
+</main>
+
+<footer><p> By Kyle Galway </p></footer>
+</body>
+</html>
