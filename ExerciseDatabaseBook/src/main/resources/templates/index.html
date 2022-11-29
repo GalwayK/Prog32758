@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method = post action = "submitBook" th:object = ${bookTemplate}>
+		<p> ISBN: <input type = text th:field = *{isbn}></p>
+		<p> Author: <input type = text th:field = *{author}></p>
+		<p> Title: <input type = text th:field = *{title}></p>
+		<p> Price: <input type = text th:field = *{price}></p>
+		<p> Genre: </p>
+		<p><input type = radio name = genre id = genre th:field = *{genre} th:each = "genre : ${genreList}" th:text = ${genre} th:value = ${genre}></p>
+		<input type = submit value = Submit>
+	</form>
+	
+	<ul> 
+		<li th:each = "book : ${bookList}" th:text = ${book}> Student </li>
+	</ul>
+	
+	<h1> Search for Book </h1>
+	<form method = post action = "searchBook">
+		<p> Book Title to Search: 
+		<input type = text name = bookTitle id = bookTitle></p>
+		<input type = submit>
+	</form>
+	
+	<h2 th:if = "${foundBook != null}">Book Has Been Found
+		<p th:text = ${foundBook}> </p>
+	</h2>
+</body>
+</html>

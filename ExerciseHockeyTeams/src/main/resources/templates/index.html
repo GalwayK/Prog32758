@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset = "UTF-8">
+<title> Hockey Dream Team! </title>
+</head>
+<body>
+	<form method = post action = "/addPlayer" th:object = ${playerTemplate}>
+	<p><label for = firstName> First Name: <input required type = text id = firstName name = firstName th:field = *{firstName}></label></p>
+	<p><label for = lastName> Last Name: <input required type = text id = lastName name = lastName th:field = *{lastName}></label></p>
+	<p><label for = jerseyNumber> Jersey Number: <input required type = number id = jerseyNumber name = jerseyNumber th:field = *{jerseyNumber}></label></p>
+	<p><label for = teamNumber> Team Name: <select id = teamNumber name = teamNumber th:field = *{teamNumber}></label>
+		<option th:each = "team,status : ${teams}" th:text = "${team.getTeamName()}" th:value = "${status.index}"> Team Name </option>
+	</select></p>
+ 	<p><label for = submit> First Name: <input type = submit value = "Add Team Member" id = submit name = submit></label></p>
+	</form>
+	
+	<p th:unless = "${playerList.empty}"> 
+		<ul> 
+			<li th:each = "player: ${playerList}" th:object = "${player}">
+				<span th:text = *{firstName}> First Name </span>
+				<span th:text = *{lastName}> Last Name </span>
+				<span th:text = *{jerseyNumber}> Jersey Number </span>
+				<span th:text = ${teams[player.getTeamNumber()].teamName}> Team Number </span>
+			</li>
+		</ul>
+	</p>
+</body>
+</html>
