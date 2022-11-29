@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Avengers</title>
+</head>
+<body>
+
+<h1> Welcome to the Avengers Database</h1>
+
+<div th:if = "${avengers.empty}">
+	<h2>Add an Avenger to Begin!</h2>
+</div>
+
+<div th:unless = "${avengers.empty}">
+	<table> 
+		<tr> 
+			<th> Name </th><th> Age </th> <th> Power Source </th> 
+		</tr>
+		<tr th:each = "avenger: ${avengers}">
+			<td th:text = "${avenger.name}"> Avenger Name </td>
+			<td th:text = "${avenger.age}"> Avenger Age </td>
+			<td th:text = ${avenger.powerSource}> Avenger Power </td>
+		</tr>
+	</table>
+</div>
+<p><a href = "/addPage"> Add an Avenger </a></p>
+
+</body>
+</html>
