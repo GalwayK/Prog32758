@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Video Game Database </title>
+</head>
+<body>
+	<header> 
+		<h1 th:if = "${gameList.empty}"> Add some games! </h1>
+		<h1 th:unless = ${gameList.empty}> Video Game List </h1>
+	</header>
+	
+	<main> 
+		<form th:object = ${game} method = post action = "/submitGame">
+			<input type = hidden th:field = *{id}> 
+			<p> Title: <input type = text th:field = "*{title}" name = title id = title></p>
+			<p> Developer: <input type = text th:field = "*{developer}" name = developer id = developer></p>
+			<p> Release Date: <input type = date th:field = *{releaseDate} name = date id = date></p>
+			<p><select th:field = *{genre} id = genre name = genre>
+				<option th:each = "genre : ${genreList}" th:text = "${genre.genre}" th:value = "${genre.genre}"></option>
+			</select></p>
+			<input th:if = "*{id = 0}" type = submit value = "Add Game">
+			<input th:unless = "*{id = 0}" type = submit value = "Update Game">
+		</form>
+		
+		<p th:if = "${message != null}"><span th:text = ${message}> Display Message </span></p>
+		
+		<table th:unless = "${gameList.empty || game.id gt 0}">
+			<tr> 
+				<td> Id </td>
+				<td> Title </td>
+				<td> Developer </td>
+				<td> Release Date </td>
+				<td> Genre </td>
+				<td> Options </td>
+			</tr>
+			<tr th:each = "game : ${gameList}" th:object = ${game}> 
+				<td th:text = *{id}> Id </td>
+				<td th:text = *{title}> Title </td>
+				<td th:text = *{developer}> Developer </td>
+				<td th:text = *{releaseDate}> Release Date </td>
+				<td th:text = *{genre}> Genre </td>
+				<td>
+					<a th:href = "|/editGame/*{id}|"><input type = button value = Edit></a>
+					<a th:href = "|/deleteGame/*{id}|"><input type = button value = Delete></a>
+				</td>
+			</tr>
+			<tr> 
+				<td colspan = 5><a href = "/deleteAll"><input type = button value = "Delete All"></a></td>
+			</tr>
+		</table>
+	</main>
+	
+	<footer> 
+		<p> By Kyle Galway </p>/
+	</footer>
+
+</body>
+</html>

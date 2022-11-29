@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang = en xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset = "UTF-8">
+<title>School Display Page</title>
+<link rel = stylesheet type = text/css th:href = "@{css/school.css}" href = "../static/css/school.css">
+</head>
+<body>
+	<header>	
+		<h1 th:if = "${!schools.isEmpty()}"> School Information </h1>
+		<h1 th:if = "${schools.isEmpty()}"> Add a School to Display it Here </h1>
+	</header>
+	
+	<main> 
+		<ul th:if = "${!schools.isEmpty()}"> 
+			<li th:each = "school: ${schools}" th:text = "${school}"> </li>
+		</ul>	
+	</main>
+	
+	<footer> 
+		<p> By Kyle Galway </p>
+		<a href = "/" class = link> Return to Main Page </a>
+	</footer>
+</body>
+</html>

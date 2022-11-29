@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = en>
+<head>
+<meta charset = "UTF-8">
+<title>School Add Page</title>
+<link rel = stylesheet type = text/css th:href = "@{css/school.css}" href = "../static/css/school.css">
+</head>
+<body>
+	<header>	
+		<h1> Enter the School Information Below! </h1>
+	</header>
+	
+	<main> 
+		<form method = post action = '/submitSchool'> 
+			<p class = input><span class = prompt>Enter School Name: </span><label for = "schoolName"><input required type = text id = schoolName name = schoolName></label></p>
+			<p class = input><span class = prompt>Enter School Address: </span><label for = "schoolAddress"><input required type = text id = schoolAddress name = schoolAddress></label></p>
+			<p class = input><span class = prompt>Enter Number of Students: </span><label for = "studentCount"><input required pattern = "\d+" type = text id = studentCount name = studentCount></label></p>
+			<input type = submit class = submit value = "Submit School"> 
+		</form>
+	
+	</main>
+	
+	<footer> 
+		<p> By Kyle Galway </p>
+		<a href = "/" class = link> Return to Main Page </a>
+	</footer>
+
+</body>
+</html>
