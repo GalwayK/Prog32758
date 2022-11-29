@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Message Board Login Page </title>
+</head>
+<body>
+<header> Login Page </header>
+
+<main> 
+	<p th:if = "${param.error}">
+		<span class = error> Error: Invalid Username or Password. </span>
+	</p>
+	<p th:if = ${param.logout}> 
+		<span class = logout> Successfully logged out. </span>
+	</p>
+	<form method = post action = "/login"> 
+		<p> Username: <input type = text name = username id = username></p>
+		<p> Password: <input type = password name = password id = password></p>
+		<input type = submit value = "Login">
+	</form>
+
+
+</main>
+
+<footer> By Kyle Galway </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" xmlns:sec = "https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title> Registration for Message Board </title>
+</head>
+<body>
+<header>
+	<h1 sec:authorize = "!isAuthenticated()"> Registration Page </h1>
+	<h1 sec:authorize = "isAuthenticated()"> Add User Page </h1>
+</header>
+
+<main> 
+	<p th:if = "${param.noMatch}"><span> Passwords do not match. </span></p>
+	<p th:unless = "${status == null}"> 
+		<span th:text = "${status}"> Status Message </span>
+	</p>
+	<form method = post action = "/register"> 
+		<p> Username: <input type = text name = username id = username></p>
+		<p> Password: <input type = password name = originalPassword id = originalPassword></p>
+		<p> Verify Password: <input type = password name = verifyPassword id = verifyPassword></p>
+		<p sec:authorize = "hasRole('WRITER')"> Writer: <input type = checkbox id = isWriter name = isWriter value = true></p> 
+		<input type = submit value = Register>
+	</form>
+	<p><a href = "/"><input type = button value = "Sign-in"></a></p>
+</main>
+
+<footer><p> By Kyle Galway </p></footer>
+</body>
+</html>
