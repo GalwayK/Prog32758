@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org" xmlns:sec = "https://thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="ISO-8859-1">
+<title> Message Board </title>
+</head>
+<body>
+<header>
+	<h1> Welcome <span sec:authentication = "name"> </span>!</h1>
+	<h2 th:unless = "${messageList.isEmpty()}"> Posted Messages </h2>
+	<h2 th:if = "${messageList.isEmpty()}"> Post a Message to View It Here </h2>
+</header>
+
+<main>
+	<p th:unless = "${status == null}"> 
+		<span th:text = "${status}"> Status Message </span>
+	</p>
+
+	<table th:unless = "${messageList.isEmpty()}">
+		<tr> 
+			<td> Message ID </td>
+			<td> Message </td>
+			<td sec:authorize = "hasRole('ROLE_WRITER')"> Edit </td>
+		</tr>
+		<tr th:each = "message : ${messageList}"> 
+			<td th:text = "${message.messageId}"> Message ID </td>
+			<td th:text = "${message.message}"> Message </td>
+			<td sec:authorize = "hasRole('ROLE_WRITER')"><a href = # th:href = "|/editMessage/${message.messageId}|">Edit</a></td>
+		</tr>
+	</table>
+	<p sec:authorize = "hasRole('ROLE_WRITER')">
+		<span><a href = "/messagePost"><input type = "Button" value = "Post a Message"></a></span>
+	</p>
+	<p><a href = "/logout"><input type = button value = "Logout"></a></p>
+</main>
+
+<footer> By Kyle Galway </footer>
+</body>
+</html>
