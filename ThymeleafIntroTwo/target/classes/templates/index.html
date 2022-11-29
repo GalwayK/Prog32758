@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang = en xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel = stylesheet type = text/css href = ../static/css/test.css th:href = "@{/css/test.css}">
+<title>Thymeleaf Exercise</title>
+</head>
+<body>
+	<h1 th:text = "|My name is ${firstName} ${lastName}|">FirstName LastName</h1>
+	<p th:if = "${number % 2 == 1}">The number is odd.</p>
+	<p th:if = "${number % 2 == 0}"> The number is even.</p>
+	<p th:text = "|${book.title} by ${book.author}|"> Book Author </p>
+	<p th:text = "|Order Price: ${book.price * number}|">Price of Order</p>
+	<span th:utext = "${html}"> </span>
+	<img src="../static/images/doom.jpg" alt="accessible description here" 
+	th:src="@{/images/doom.jpg}">
+</body>
+</html>

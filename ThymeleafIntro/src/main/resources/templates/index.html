@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Thymeleaf Intro Page!</title>
+</head>
+<body>
+
+	<p th:text="${book}">my new book</p>
+	<p th:text="${book.getTitle()}">a book title</p>
+	<p th:text="${cat}">a cat's name</p>
+	
+	<form action="/">
+	  	<p><label for="stuff">Enter Stuff:
+	   	 <input type="text" id="stuff" name="stuff">
+	  	</label></p>
+	  	<p><input type="submit"></p>
+	</form>
+	
+	<p th:text = "${param.stuff}"> Stuff Here </p>
+</body>
+</html>

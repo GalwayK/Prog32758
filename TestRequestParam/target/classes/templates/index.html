@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<header> Test Form Page </header>
+			
+	<main> 
+	<form method = GET action = "/formSubmit">
+	
+	<p> Input item name: </p> <input type = text name = inputName>
+	<p> Input item price: </p> <input type = text name = inputPrice pattern = "(\d*?\.)\d+"> 
+	<p> Input item quantity: </p> <input type = text name = inputQuantity pattern = "\d+">
+	<p> You would like to be added to our sword newsletter: <input type = checkbox required name = inputNewsletter value = true></p>
+	<p> Please enter the date you would like your sword to arrive: <input type = date name = inputDate> </p>
+	<p> Please enter the time you would like your sword to arrive: <input type = time name = inputTime> </p>
+	<input type = submit>
+	
+	</form>
+	
+	</main>
+	
+	<footer> By Kyle Galway</footer>
+
+
+</body>
+</html>

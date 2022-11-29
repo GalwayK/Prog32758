@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Patient Registration Form</title>
+</head>
+<body>
+	<header> Patient Registration Form</header>
+
+	<main><form method = post action = "/submitAppointment">
+		<label for = "patientId"></label>
+		<p> Please enter name: <input type = text id = patientId name = patientId required></p>
+		
+		<label for = "appointmentDate"></label>
+		<p> Preferred date: <input type = date id = appointmentDate name = appointmentDate required></p>
+		
+		<label for = "earlyTime"></label>
+		<p> Between: <input type = time id = earlyTime name = earlyTime required></p>
+		
+		<label for = "lateTime"></label>
+		<p> Please enter name: <input type = time id = lateTime name = lateTime required></p>
+		
+		<p> Please check any accommodations you require: </p>
+		
+		<fieldset>
+		
+			<legend> Accommodations: </legend>
+			
+			<label for = "transportation"></label>
+			<input type = checkbox id = transportation value = "Transportation" name = accommodation>
+			
+			<label for = "interpreter"></label>
+			<input type = checkbox id = interpreter value = "Interpreter" name = accommodation>
+			
+			<label for = "mobility device"></label>
+			<input type = checkbox id = "mobility device" value = "Mobility Device" name = accommodation>
+			
+			<label for = "sight guide"></label>
+			<input type = checkbox id = "sight guide" value = "Sight Guide" name = accommodation>
+			
+		</fieldset>
+		
+		<input type = submit>
+	
+	</form></main>
+
+	<footer> By Kyle Galway </footer>
+</body>
+</html>

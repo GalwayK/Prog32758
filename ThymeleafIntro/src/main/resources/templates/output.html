@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang = en xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Output Page</title>
+</head>
+<body>
+	<header>The Output Page! </header>
+	
+	<p>Your name: <span th:text = "${param.name}"> </span></p>
+	<p>Item ID: <span th:text = "${inv.getItemId()}"> Item Id </span></p>
+	<p>Item Name: <span th:text = "${inv.getItemName()}"> Item name </span></p>
+	<p> Item Quantity: [[${inv.getItemQuantity()}]] </p>
+	
+	
+</body>
+</html>
