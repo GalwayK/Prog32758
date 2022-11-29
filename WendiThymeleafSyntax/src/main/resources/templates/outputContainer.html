@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel = stylesheet type = text/css href = ../static/css/outputContain.css th:href = @{css/outputContain.css}>
+</head>
+<body>
+<h1 th:if = "${container.volume le 10}" th:text = "|${container.name} moved to Books department.|"></h1>
+<h1 th:if = "${container.volume le 50 && container.volume gt 10}" th:text = "|${container.name} moved to the Electronics Department.|"></h1>
+<h1 th:if = "${container.volume gt 50 && container.name.contains('crate')}" th:text = "|${container.name} moved to the Shrug Department.|"></h1>
+<h1 th:if = "${container.volume gt 50 && !container.name.contains('crate')}" th:text = "|${container.name} moved to the Bleg Department.|"></h1>
+
+</body>
+</html>
