@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset = "UTF-8">
+<title> User Database </title>
+<link rel = stylesheet type = text/css href = "../static/css/data.css" th:href = @{css/data.css}>
+</head>
+<body>
+	<header><h1> User Database </h1></header>
+	
+	<main>
+		<form method = post action = # th:action = "|/modifyUser/*{id}|" th:object = "${user}">
+			<input type = hidden th:field = *{creationDateTime}>
+			<input type = hidden th:field = *{updateDateTime}>
+			<input type = hidden th:field = *{id}>
+			<p class = input><span> First Name: </span><input type = text name = firstName required id = firstName th:field = "*{firstName}"></p>
+			<p class = input><span> Last Name: </span><input type = text name = lastName required id = lastName th:field = "*{lastName}"></p>
+			<p class = input><span> User Role: </span><input type = text name = role required id = role th:field = "*{role}"></p>
+			<input th:if = "*{id == 0}" type = submit value = "Submit User">
+			<input th:unless = "*{id == 0}" type = submit value = "Update User">
+			<a th:unless = "*{id == 0}" href = # th:href = |/deleteUser/*{id}|><input type = button value = "Delete User"></a>
+		</form>
+		
+		<p th:if = "${message != null}"><span th:text = "${message}"> Query Message </span></p>
+		
+		<table th:unless = "${userList.empty || user.id gt 0}"> 
+			<tr> 
+			 	<td> Id </td><td> First Name </td><td> Last Name </td><td> Role </td><td> Created At </td><td> Updated At </td><td> Edit </td>
+			</tr>
+			<tr th:each = "user,status : ${userList}" th:object = ${user}>
+				<td th:text = *{id}> Id </td>
+				<td th:text = *{firstName}> First Name </td>
+				<td th:text = *{lastName}> Last Name </td>
+				<td th:text = *{role}> Role </td>
+				<td th:text = *{creationDateTime}> Created At </td>
+				<td th:text = *{updateDateTime}> Updated At </td>
+				<td><a href = # th:href = "|/editUser/*{id}|"> <input type = button value = Edit></a></td>
+			</tr>
+		</table>
+	</main>
+	
+	<footer> By Kyle Galway </footer>
+</body>
+</html>
