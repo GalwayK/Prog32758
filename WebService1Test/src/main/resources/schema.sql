@@ -1,0 +1,6 @@
+CREATE TABLE containers 
+(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	containerName VARCHAR(50) NOT NULL UNIQUE,
+	volume DECIMAL(6,2) NOT NULL
+);
